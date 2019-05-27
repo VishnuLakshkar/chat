@@ -1,0 +1,16 @@
+<% if !current_user.is_blocked?(@user) && !@user.is_blocked?(current_user) %>
+  <div>
+    <div>
+      Email: <strong><%= @user.email %></strong>
+    </div>
+    <% unless current_user == @user %>
+      <div class='block_form'>
+        <%= render 'block', user: @user %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div style='margin-top: 56px; margin-left: 8px;'>
+    <h1><%= @user.email %> blocked</h1>
+  </div>
+<% end %>

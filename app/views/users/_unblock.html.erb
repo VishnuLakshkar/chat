@@ -1,0 +1,4 @@
+<%= form_for(current_user.blocked_relationships.find_by(blocker_id: user.id),
+             html: { method: :delete }, data: {confirm: "You want to unblock #{user.email}?"}) do |f| %>
+  <%= f.submit "Unblock", class: "btn btn-info" %>
+<% end %>

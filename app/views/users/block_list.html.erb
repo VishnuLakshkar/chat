@@ -1,0 +1,12 @@
+<ul class="user", style="margin-top: 56px; margin-left: 10px">
+  <% @users.each do |user| %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= user.email %>
+      </div>
+      <div class='col-md-3'>
+        <%= render "unblock", user: user %>
+      </div>
+    </div>
+  <% end %>
+</ul>
