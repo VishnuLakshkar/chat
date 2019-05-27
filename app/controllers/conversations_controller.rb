@@ -19,10 +19,6 @@ class ConversationsController < ApplicationController
     end
   end
 
-  def index
-    @conversated_users = Conversation.all.map { |conversated_users| conversated_users.opposed_user(current_user) }.uniq
-  end
-
   private
 
   def add_to_conversations
