@@ -10,7 +10,6 @@ class MessageBroadcastJob < ApplicationJob
   end
 
   private
-
   def broadcast_to_sender(user, message)
     ActionCable.server.broadcast(
       "conversations-#{user.id}",

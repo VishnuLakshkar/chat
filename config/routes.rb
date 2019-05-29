@@ -4,8 +4,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  resources :users, only: [:index, :show]
-  resources :users do
+  resources :users, only: [:index, :show] do
     member do
       get :block_list
     end
