@@ -3,6 +3,18 @@
     <div>
       Email: <strong><%= @user.email %></strong>
     </div>
+    <div>
+      Name: <strong><%= @user.name.capitalize %></strong>
+    </div>
+    <div>
+      Phone: <strong><%= @user.phone %></strong>
+    </div>
+    <div>
+      Gender: <strong><%= @user.gender.capitalize %></strong>
+    </div>
+    <div>
+      Birth: <strong><%= @user.birth %></strong>
+    </div>
     <% unless current_user == @user %>
       <div class='block_form'>
         <%= render 'block', user: @user %>
@@ -11,6 +23,6 @@
   </div>
 <% else %>
   <div>
-    <center><h1><%= @user.email %> blocked</h1></center>
+    <center><h1><%= @user.name %> blocked</h1></center>
   </div>
 <% end %>

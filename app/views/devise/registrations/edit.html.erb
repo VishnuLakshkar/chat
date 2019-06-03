@@ -1,0 +1,49 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Name" %>
+  </div>
+
+  <div class="field">
+   <%= f.password_field :password, placeholder: "Enter new password" %><br />
+   <i>(leave blank if you don't want to change it)</i>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, placeholder: "Confirm new password" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :current_password, placeholder: "Current Password" %></br>
+    <i>(we need your current password to confirm your changes)</i>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :phone, placeholder: "Phone Number", required: true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Date of birth" %>
+    <%= f.date_select :birth, start_year: 1940 %>
+  </div>
+
+  <div class="field">
+    <%= f.radio_button :gender, "Male", required: true %>
+    <%= f.label :gender, value: "Male" %>
+    <%= f.radio_button :gender, "Female" %>
+    <%= f.label :gender, "Female" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Deactivate My Account</h3>
+
+<p><%= button_to "Deactivate my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

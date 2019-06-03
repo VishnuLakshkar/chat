@@ -5,8 +5,17 @@
 	  		<%= link_to user.email, user %>
 	  	</div>
 	  	<div class="col-md-3">
+	  		<% if user.last_sign_in_at > user.current_sign_in_at %>
+    	    last seen <%= time_ago_in_words(user.last_sign_in_at) %> ago.
+	  		<% else %>
+	  			<label>Active Now</label>
+	  		<% end %>
+	  	</div>
+	  	<div class="col-md-3">
     		<%= render 'block', user: user %>
 	  	</div>
 	  </div>
 	</li>
 <% end %>
+
+

@@ -2,16 +2,16 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-  	@user = User.create!(email: "abc@gmail.com", password: "123456")
+    @user = User.create!(email: "abc@gmail.com", birth: "1993-09-03", password: "123456", name: "abc", gender: "Male", phone: 9876543456)
   end
 
   test "valid" do 
-  	assert @user.valid?
+    assert @user.valid?
   end
 
   test "email should be present" do 
-  	@user.email = ""
-  	assert_not @user.valid?
+    @user.email = ""
+    assert_not @user.valid?
   end
 
   test "email validation should accept valid addresses" do
@@ -37,6 +37,31 @@ class UserTest < ActiveSupport::TestCase
 
   test "password should have a minimum length" do
     @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
+
+  test "name cannot be nil" do 
+    @user.name = nil
+    assert_not @user.valid?
+  end
+
+  test "gender cannot nil" do 
+    @user.gender = nil
+    assert_not @user.valid?
+  end
+
+  test "birth date cannot nil" do 
+    @user.birth = nil
+    assert_not @user.valid?
+  end
+
+  test "phone number cannot nil" do 
+    @user.phone = nil
+    assert_not @user.valid?
+  end
+
+  test "name cannot exceed limit" do 
+    @user.name = "a" * 30
     assert_not @user.valid?
   end
 end

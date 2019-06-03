@@ -1,0 +1,43 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, placeholder: "Full Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, placeholder: "Email"  %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, placeholder: "Password"  %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, placeholder: "Password Confirmation"  %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :phone, placeholder: "Phone Number"  %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Date of birth" %><br>
+    <%= f.date_select :birth, start_year: 1940 %>
+  </div>
+
+  <div class="field">
+    <%= f.radio_button :gender, "Male", required: true %>
+    <%= f.label :gender, value: "Male" %>
+    <%= f.radio_button :gender, "Female" %>
+    <%= f.label :gender, "Female" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: "btn btn-info btn-sm" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

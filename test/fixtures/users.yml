@@ -1,23 +1,35 @@
 vishnu:
   email: vishnu@gmail.com
   encrypted_password: "123456"
+  current_sign_in_at: 2019-06-03 11:18:37 +0530
+  last_sign_in_at: 2019-06-03 11:18:38 +0530
 
 himanshu:
   email: himanshu@gmail.com
   encrypted_password: "123456"
+  current_sign_in_at: 2019-06-03 11:18:37 +0530
+  last_sign_in_at: 2019-06-03 11:18:30 +0530
 
 shashank:
   email: shashank@gmail.com
   encrypted_password: "123456"
+  current_sign_in_at: 2019-06-03 11:18:37 +0530
+  last_sign_in_at: 2019-06-03 11:18:39 +0530
 
 anshul:
   email: anshul@gmail.com
   encrypted_password: "123456"
+  current_sign_in_at: 2019-06-03 11:18:37 +0530
+  last_sign_in_at: 2019-06-03 11:18:39 +0530
 
 shipra:
   email: shipra@gmail.com
   encrypted_password: "123456"
+  current_sign_in_at: 2019-06-03 11:18:37 +0530
+  last_sign_in_at: 2019-06-03 11:18:39 +0530
 
 sandeep:
   email: sandeep@gmail.com
   encrypted_password: "123456"
+  current_sign_in_at: 2019-06-03 11:18:37 +0530
+  last_sign_in_at: 2019-06-03 11:18:39 +0530

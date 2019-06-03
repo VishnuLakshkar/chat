@@ -47,8 +47,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 		get edit_user_registration_path
 		assert_response :success
 
-		assert_select "label", "Password"
-		assert_select "h3", "Cancel my account"
+    assert_select "h3", "Deactivate My Account"
 	end
 
   test "user cannot update information without login" do
