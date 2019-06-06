@@ -1,4 +1,5 @@
 <ul class="block_list">
+  <%= will_paginate  @users, inner_window: 2, outer_window: 1 %>
   <% @users.each do |user| %>
     <div class="row">
       <div class="col-md-3">

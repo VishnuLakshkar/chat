@@ -5,11 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-password = 'pass123'
-1.upto(5) do |i|
-  User.create(
-    email: "user-#{i}@example.com",
-    password: password,
-    password_confirmation: password
-  )
+phone = 9765432112
+
+99.times do |n|
+	name = "vishnu-#{n + 1}"
+	email = "vishnu-#{n + 1}@gmail.com"
+	phone = phone + n + 1
+	User.create!(
+		name: name,
+		email: email,
+		phone: phone,
+		birth: Date.today - 1000,
+		password: "123456",
+		gender: "Male",
+		current_sign_in_at: Date.today - 1,
+		last_sign_in_at: Date.today
+	)
 end

@@ -14,10 +14,11 @@
       </div>
       <div class="panel-body">
         <ul>
+          <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
           <% @users.each do |user| %>
             <% unless current_user.is_blocked?(user) || user.is_blocked?(current_user) %>
               <li>
-                <%= link_to user.email, conversations_path(user_id: user), remote: true, method: :post %>
+                <%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %>
               </li>
             <% end %>
           <% end %>

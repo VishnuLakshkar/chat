@@ -1,8 +1,18 @@
-<div class="navbar">
-	<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-	<%= link_to "Block list", block_list_user_path(current_user) %>
-	<%= link_to "Profile", user_path(current_user) %>
-	<%= link_to "Message", home_index_path %>
-	<%= link_to "Edit Profile", edit_user_registration_path %>
-	<%= link_to "Home", users_path %>
-</div>
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div class="container">
+	  <nav>
+	    <ul class="nav navbar-nav navbar-right">
+				<li><%= link_to "Home", users_path %></li>
+				<li><%= link_to "Profile", user_path(current_user) %></li>
+				<li>
+					<%= link_to home_index_path do %>
+						Message<sup></sup>
+					<% end %>
+				</li>
+				<li><%= link_to "Block list", block_list_user_path(current_user) %></li>
+				<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+	    	<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+			</ul>
+	  </nav>
+	</div>
+</header>

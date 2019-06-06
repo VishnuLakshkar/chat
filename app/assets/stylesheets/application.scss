@@ -6,8 +6,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  padding-top: 60px;
+}
+
 ul {
-  padding-left: 0px;
   list-style: none;
 }
 
@@ -73,4 +76,13 @@ ul {
 
 .field {
   margin-top: 5px;
+}
+
+.user {
+  alilgn: center;
+}
+
+sup {
+  color: white;
+  font-size: 15px;
 }

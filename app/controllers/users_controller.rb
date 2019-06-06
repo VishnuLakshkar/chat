@@ -1,21 +1,13 @@
 class UsersController < ApplicationController
-	before_action :find_user, only: [:show, :block_list]
-
 	def index
-		@users = User.all
+    @users = User.where.not(id: current_user.id).paginate(page: params[:page], per_page: 10)
 	end
 
 	def show
-    @user = find_user
+    @user = User.find(params[:id])
 	end
 
 	def block_list
-    @user  = find_user
-    @users = @user.blockers
-  end
-
-  private
-  def find_user
-  	User.find(params[:id])
+    @users = current_user.blockers.paginate(page: params[:page], per_page: 10)
   end
 end

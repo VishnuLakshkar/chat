@@ -1,7 +1,29 @@
-<ul class="user">
-	<% @users.each do |user| %>
-		<% unless current_user.is_blocked?(user) || user.is_blocked?(current_user) %>
-			<%= render user %>
+<div class="table-responsive">          
+ 	<table class="table table-hover thead-dark">
+   	<thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Activity</th>
+	      <th>Action</th>
+	    </tr>
+	  </thead>
+   	<% @users.each do |user| %>
+			<% unless current_user == user || current_user.is_blocked?(user) || user.is_blocked?(current_user) %>
+				<tbody>
+		     	<tr>
+		       	<td><%= link_to user.name, user_path(user) %></td>
+		       	<td>
+		       		<% if user.last_sign_in_at > user.current_sign_in_at %>
+			    	    last seen <%= time_ago_in_words(user.last_sign_in_at) %> ago.
+				  		<% else %>
+				  			<label>Active Now</label>
+				  		<% end %>
+				  	</td>
+		       	<td><%= render 'block', user: user %></td>
+		     	</tr>
+		   	</tbody>
+	   	<% end %>
 		<% end %>
-  <% end %>
-</ul>
+ 	</table>
+	<%= will_paginate %>
+</div>

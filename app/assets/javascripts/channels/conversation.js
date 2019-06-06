@@ -1,3 +1,4 @@
+var count = 0;
 App.conversation = App.cable.subscriptions.create("ConversationChannel", {
   connected: function() {},
   disconnected: function() {},
@@ -29,12 +30,18 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
     // var height = messages_list[0].scrollHeight;
     // messages_list.scrollTop(height);
 
-    var conversation = $('#conversations-list').find("[data-conversation-id='" + data['conversation_id'] + "']");
-    conversation.find('.messages-list').find('ul').append(data['message']);
+    if (document.URL == "http://localhost:3000/home/index") {
+      var conversation = $('#conversations-list').find("[data-conversation-id='" + data['conversation_id'] + "']");
+      conversation.find('.messages-list').find('ul').append(data['message']);
 
-    var messages_list = conversation.find('.messages-list');
-    var height = messages_list[0].scrollHeight;
-    messages_list.scrollTop(height);
+      var messages_list = conversation.find('.messages-list');
+      var height = messages_list[0].scrollHeight;
+      messages_list.scrollTop(height);
+      count = 0;
+    }
+    else {
+      $(".navbar").find("sup").text(++count);
+    }
   },
   speak: function(message) {
     return this.perform('speak', {
@@ -50,3 +57,4 @@ $(document).on('submit', '.new_message', function(e) {
   }
   $(this).trigger('reset');
 });
+
