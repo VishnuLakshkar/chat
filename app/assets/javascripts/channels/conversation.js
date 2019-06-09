@@ -30,7 +30,7 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
     // var height = messages_list[0].scrollHeight;
     // messages_list.scrollTop(height);
 
-    if (document.URL == "http://localhost:3000/home/index") {
+    if (document.URL.match(/(\/home\/index)/)) {
       var conversation = $('#conversations-list').find("[data-conversation-id='" + data['conversation_id'] + "']");
       conversation.find('.messages-list').find('ul').append(data['message']);
 

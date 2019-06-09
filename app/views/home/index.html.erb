@@ -14,7 +14,6 @@
       </div>
       <div class="panel-body">
         <ul>
-          <%= will_paginate @users, inner_window: 2, outer_window: 1 %>
           <% @users.each do |user| %>
             <% unless current_user.is_blocked?(user) || user.is_blocked?(current_user) %>
               <li>
@@ -22,6 +21,7 @@
               </li>
             <% end %>
           <% end %>
+          <%= will_paginate @users, inner_window: 2, outer_window: 1, page_links: false %>
         </ul>
       </div>
     </div>
